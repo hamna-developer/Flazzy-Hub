@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Bookends | Hidden Metal Book Holders | Flazzy Home Decor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ====== CSS Variables & Reset ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-light: #f9f5f0;
+            --light-brown: #d7c4b2;
+            --medium-brown: #a78a73;
+            --dark-brown: #5d4a3a;
+            --cream: #F5F5DC;
+            --gold: #D4AF37;
+            --dark-gold: #b8941f;
+            --text-dark: #2c2c2c;
+            --text-light: #FFFFFF;
+            --nav-white: #FFFFFF;
+            --nav-hover: #a78a73;
+            --accent-blue: #1e3a8a;
+            --accent-red: #dc2626;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* ====== Welcome Bar ====== */
+        .welcome-bar {
+            background: linear-gradient(90deg, var(--dark-brown), var(--medium-brown));
+            color: var(--cream);
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+            height: 35px;
+            display: flex;
+            align-items: center;
+        }
+
+        .welcome-text {
+            position: absolute;
+            white-space: nowrap;
+            animation: moveText 35s linear infinite;
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes moveText {
+            0% {
+                left: 100%;
+            }
+
+            100% {
+                left: -100%;
+            }
+        }
+
+        /* ====== Header & Navigation ====== */
+        header {
+            background-color: var(--nav-white);
+            padding: 15px 5%;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 46px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img img {
+            height: 100%;
+            width: auto;
+            max-height: 46px;
+            object-fit: contain;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--dark-brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 46px;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold);
+            margin-left: 2px;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 550px;
+            margin: 0 30px;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 14px 22px;
+            padding-right: 60px;
+            background-color: var(--primary-light);
+            border: 2px solid var(--light-brown);
+            border-radius: 50px;
+            font-size: 15px;
+            color: var(--dark-brown);
+            transition: var(--transition);
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--medium-brown);
+            box-shadow: 0 0 0 4px rgba(167, 138, 115, 0.2);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--medium-brown), var(--dark-brown));
+            border: none;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-button:hover {
+            background: linear-gradient(135deg, var(--dark-brown), #4a3729);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-right i {
+            color: var(--text-dark);
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .nav-right i:hover {
+            color: var(--nav-hover);
+            background-color: var(--primary-light);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 24px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        /* ====== Category Menu ====== */
+        .category-menu {
+            background-color: var(--cream);
+            padding: 15px 5%;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            border-top: 1px solid rgba(167, 138, 115, 0.1);
+            border-bottom: 1px solid rgba(167, 138, 115, 0.1);
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .category-list li {
+            position: relative;
+        }
+
+        .category-list a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .category-list a:hover {
+            color: var(--medium-brown);
+        }
+
+        .category-list a.active {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .category-list a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        /* ====== Breadcrumb ====== */
+        .breadcrumb {
+            padding: 22px 5%;
+            background-color: var(--primary-light);
+            border-bottom: 1px solid rgba(167, 138, 115, 0.1);
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--medium-brown);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: var(--dark-brown);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-nav i {
+            color: var(--medium-brown);
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .breadcrumb-nav .current {
+            color: var(--dark-brown);
+            font-weight: 600;
+        }
+
+        /* ====== Product Detail Section ====== */
+        .product-detail {
+            padding: 50px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-bottom: 70px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            background-color: white;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 10px 40px var(--shadow-medium);
+            border: 1px solid rgba(167, 138, 115, 0.1);
+        }
+
+        /* Product Images Gallery - UPDATED */
+        .product-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            /* Reduced from 18px */
+        }
+
+        .product-main-image {
+            grid-column: span 3;
+            height: 480px;
+            object-fit: contain;
+            border-radius: 12px;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-light), #fff);
+            border: 1px solid rgba(167, 138, 115, 0.1);
+            padding: 15px;
+            transition: var(--transition);
+            cursor: zoom-in;
+            margin-bottom: 5px;
+            /* Small margin below main image */
+        }
+
+        .product-main-image:hover {
+            transform: scale(1.01);
+            box-shadow: 0 8px 25px var(--shadow-medium);
+        }
+
+        .product-thumbnail {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            background-color: var(--primary-light);
+            padding: 5px;
+        }
+
+        .product-thumbnail:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px var(--shadow-medium);
+        }
+
+        .product-thumbnail.active {
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Product Information */
+        .product-info {
+            padding: 10px 0;
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .product-subtitle {
+            font-size: 18px;
+            color: var(--medium-brown);
+            margin-bottom: 25px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        .rating-count {
+            color: var(--medium-brown);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .rating-badge {
+            background-color: var(--primary-light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-brown);
+            border: 1px solid var(--light-brown);
+        }
+
+        .price-section {
+            background-color: var(--primary-light);
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid var(--light-brown);
+        }
+
+        .price-main {
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 5px;
+        }
+
+        .price-old {
+            font-size: 18px;
+            color: var(--medium-brown);
+            text-decoration: line-through;
+            margin-bottom: 10px;
+        }
+
+        .price-save {
+            color: var(--accent-red);
+            font-weight: 600;
+            background-color: rgba(220, 38, 38, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .product-features {
+            margin-bottom: 35px;
+        }
+
+        .features-title {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: var(--dark-brown);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .features-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed rgba(167, 138, 115, 0.2);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list i {
+            color: var(--gold);
+            margin-top: 4px;
+            font-size: 18px;
+        }
+
+        .feature-list strong {
+            color: var(--dark-brown);
+        }
+
+        .product-specs {
+            background-color: var(--primary-light);
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid var(--light-brown);
+        }
+
+        .specs-title {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            color: var(--dark-brown);
+            margin-bottom: 18px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(167, 138, 115, 0.1);
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: var(--medium-brown);
+        }
+
+        .spec-value {
+            font-weight: 500;
+            color: var(--dark-brown);
+        }
+
+        .amazon-action {
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .amazon-btn-large {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            background: linear-gradient(135deg, #FF9900, #FF8C00);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.3);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .amazon-btn-large::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF8C00, #FF7700);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .amazon-btn-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 153, 0, 0.4);
+        }
+
+        .amazon-btn-large:hover::before {
+            opacity: 1;
+        }
+
+        .amazon-btn-large i {
+            font-size: 22px;
+        }
+
+        .btn-subtext {
+            text-align: center;
+            margin-top: 12px;
+            color: var(--medium-brown);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* ====== Related Products ====== */
+        .related-products {
+            padding: 70px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            color: var(--dark-brown);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        .view-all {
+            color: var(--medium-brown);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .view-all:hover {
+            color: var(--dark-brown);
+            gap: 12px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .related-card {
+            background-color: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            transition: var(--transition);
+            border: 1px solid rgba(167, 138, 115, 0.1);
+            position: relative;
+        }
+
+        .related-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px var(--shadow-medium);
+        }
+
+        .related-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent-red);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .related-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .related-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .related-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--dark-brown);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .related-price {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .related-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--medium-brown);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 10px 22px;
+            border-radius: 30px;
+            border: 2px solid var(--light-brown);
+            width: 100%;
+        }
+
+        .related-link:hover {
+            color: var(--dark-brown);
+            border-color: var(--gold);
+            background-color: rgba(212, 175, 55, 0.05);
+            gap: 15px;
+        }
+
+        /* ====== Footer ====== */
+        footer {
+            background: linear-gradient(135deg, var(--dark-brown), #4a3729);
+            color: var(--cream);
+            padding: 70px 5% 30px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--cream);
+            text-decoration: none;
+            margin-bottom: 14px;
+            transition: var(--transition);
+            opacity: 0.9;
+            font-size: 15px;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+            opacity: 1;
+            padding-left: 8px;
+        }
+
+        .footer-column a::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover::before {
+            opacity: 1;
+            left: -10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--cream);
+            font-size: 18px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--dark-brown);
+            transform: translateY(-5px) rotate(5deg);
+        }
+
+        .footer-column p i {
+            margin-right: 12px;
+            color: var(--gold);
+            width: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 70px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--cream);
+            opacity: 0.7;
+            font-size: 14px;
+            max-width: 1300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .copyright a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Disclosure */
+        .footer-disclosure {
+            background-color: rgba(0, 0, 0, 0.25);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 50px;
+            font-size: 14px;
+            line-height: 1.7;
+            border-left: 4px solid var(--gold);
+        }
+
+        .footer-disclosure strong {
+            color: var(--gold);
+        }
+
+        /* ====== Mobile Menu ====== */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100%;
+            background-color: var(--nav-white);
+            box-shadow: -5px 0 25px var(--shadow-medium);
+            z-index: 1001;
+            padding: 70px 30px;
+            transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 24px;
+            color: var(--text-dark);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-close:hover {
+            background-color: var(--primary-light);
+            color: var(--medium-brown);
+        }
+
+        .mobile-category-list {
+            list-style: none;
+        }
+
+        .mobile-category-list li {
+            margin-bottom: 22px;
+        }
+
+        .mobile-category-list a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 8px 0;
+            display: block;
+            border-bottom: 1px solid rgba(167, 138, 115, 0.1);
+        }
+
+        .mobile-category-list a:hover {
+            color: var(--medium-brown);
+            padding-left: 10px;
+        }
+
+        .mobile-category-list a.active {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ====== Responsive Design ====== */
+        @media (max-width: 1100px) {
+            .product-container {
+                gap: 50px;
+                padding: 40px;
+            }
+
+            .product-main-image {
+                height: 420px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-images {
+                order: 2;
+            }
+
+            .product-info {
+                order: 1;
+            }
+
+            .product-main-image {
+                height: 400px;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-right i:not(.hamburger) {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .category-menu {
+                display: none;
+            }
+
+            .search-container {
+                display: none;
+            }
+
+            .logo {
+                font-size: 30px;
+            }
+
+            .product-container {
+                padding: 30px;
+            }
+
+            .product-images {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .product-thumbnail {
+                height: 90px;
+            }
+
+            .product-title {
+                font-size: 30px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 25px;
+            }
+
+            .price-main {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 26px;
+            }
+
+            .product-container {
+                padding: 25px;
+            }
+
+            .product-images {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .product-main-image {
+                grid-column: span 2;
+                height: 320px;
+                margin-bottom: 8px;
+            }
+
+            .product-thumbnail {
+                height: 80px;
+            }
+
+            .product-title {
+                font-size: 26px;
+            }
+
+            .amazon-btn-large {
+                padding: 18px 30px;
+                font-size: 16px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .welcome-text {
+                font-size: 13px;
+            }
+        }
+
+        /* Updated image gallery spacing */
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            /* Reduced gap */
+        }
+
+        .thumbnail-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            /* Reduced gap */
+            margin-top: 8px;
+            /* Reduced margin */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Welcome Bar -->
+    <div class="welcome-bar">
+        <div class="welcome-text">Flazzy Premium Home Decor | Exclusive Superhero Bookends | Elevate Your Space with
+            Style & Function</div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-img">
+                    <img src="/assets/flazzy_logo.png" alt="Flazzy Logo" onerror="this.style.display='none'">
+                </div>
+                <a href="/index.html" class="logo">Flazzy<span>.</span></a>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Discover elegant home decor...">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-right">
+                <i class="fas fa-heart" title="Wishlist"></i>
+                <i class="fas fa-shopping-cart" title="Cart"></i>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Menu -->
+    <div class="category-menu">
+        <ul class="category-list">
+            <li><a href="/makeup/makeup.html" target="_blank">Makeup</a></li>
+            <li><a href="/home&kitchen/home&kitchen.html" target="_blank">Home & Kitchen</a></li>
+            <li><a href="/homedecor/homedecor.html" target="_blank" class="active">Home Decor</a></li>
+            <li><a href="/electronics/electronics.html" target="_blank">Electronics</a></li>
+            <li><a href="/Trendyphonecases/cases.html" target="_blank">Phone Cases</a></li>
+        </ul>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav class="breadcrumb-nav">
+            <a href="/index.html"><i class="fas fa-home"></i> Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="/homedecor/homedecor.html">Home Decor</a>
+            <i class="fas fa-chevron-right"></i>
+            <span class="current">Superhero Hidden Bookends</span>
+        </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-close"><i class="fas fa-times"></i></div>
+        <ul class="mobile-category-list">
+            <li><a href="/makeup/makeup.html" target="_blank">Makeup</a></li>
+            <li><a href="/home&kitchen/home&kitchen.html" target="_blank">Home & Kitchen</a></li>
+            <li><a href="/homedecor/homedecor.html" target="_blank" class="active">Home Decor</a></li>
+            <li><a href="/electronics/electronics.html" target="_blank">Electronics</a></li>
+            <li><a href="/Trendyphonecases/cases.html" target="_blank">Phone Cases</a></li>
+        </ul>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="product-container">
+            <!-- Product Images - UPDATED LAYOUT -->
+            <div class="product-images">
+                <img src="/assests2/Book Holder1.jpg" alt="Superhero Hidden Bookend Displaying Books"
+                    class="product-main-image" id="mainImage">
+                <img src="/assests2/Book Holder1.jpg" alt="Superhero Bookend Front View"
+                    class="product-thumbnail active" onclick="changeImage(this.src)">
+                <img src="/assests2/Book Holder3.jpg" alt="Bookend in Home Library Setting" class="product-thumbnail"
+                    onclick="changeImage(this.src)">
+                <img src="/assests2/Book Holder4.jpg" alt="Close-up Metal Detail & Finish" class="product-thumbnail"
+                    onclick="changeImage(this.src)">
+            </div>
+
+            <!-- Product Information -->
+            <div class="product-info">
+                <div class="product-badge">AMAZON'S CHOICE</div>
+                <h1 class="product-title">Superhero Hidden Bookends</h1>
+                <div class="product-subtitle">Heavy-Duty Metal Book Holders with Floating Illusion Design</div>
+
+                <div class="product-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="rating-count">4.4 out of 5 stars</div>
+                    <div class="rating-badge">2,616+ ratings</div>
+                </div>
+
+                <div class="price-section">
+                    <div class="price-main">$24.90</div>
+                    <div class="price-old">$34.90</div>
+                    <div class="price-save">Save $10.00 (29%)</div>
+                </div>
+
+                <div class="product-features">
+                    <h3 class="features-title">Transform Your Space</h3>
+                    <p style="margin-bottom: 20px; color: var(--medium-brown);">
+                        These aren't just bookends—they're conversation starters that blend artistry with functionality.
+                        Perfect for comic lovers and design enthusiasts alike.
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-magic"></i>
+                            <div><strong>Optical Illusion Design:</strong> Creates a stunning floating book effect that
+                                amazes guests and adds magical charm to any room.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-alt"></i>
+                            <div><strong>Superhero-Themed Decor:</strong> Features iconic superhero designs that
+                                celebrate comic book artistry while serving as functional decor.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-weight-hanging"></i>
+                            <div><strong>Heavy-Duty Construction:</strong> Solid metal build securely holds even your
+                                heaviest book collections without slipping or tilting.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-gift"></i>
+                            <div><strong>Perfect Gift Idea:</strong> An unforgettable present for book lovers, comic
+                                enthusiasts, or anyone who appreciates unique home accents.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-couch"></i>
+                            <div><strong>Versatile Placement:</strong> Works beautifully on shelves, desks, nightstands,
+                                or office spaces—wherever your books need stylish support.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="amazon-action">
+                    <a href="https://amzn.to/4qYVAtd" target="_blank" class="amazon-btn-large">
+                        <i class="fab fa-amazon"></i> View on Amazon & Check Price
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="section-header">
+            <h2>Complementary Decor Items</h2>
+            <a href="/homedecor/homedecor.html" class="view-all">View All Collections <i
+                    class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="related-grid">
+            <div class="related-card">
+                <div class="related-badge">BESTSELLER</div>
+                <img src="/assests2/Rainbow Blackout Curtains1.jpg" alt="Rainbow Blackout Curtains">
+                <div class="related-info">
+                    <h4>Rainbow Blackout Curtains</h4>
+                    <div class="related-price">$32.99</div>
+                    <a href="https://amzn.to/4qURWAB" target="_blank" class="related-link">Shop Now <i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="related-card">
+                <div class="related-badge">NEW</div>
+                <img src="/assests/Sunflowers Flower Lamp1.jpg" alt="Sunflower LED Lamp">
+                <div class="related-info">
+                    <h4>Sunflower LED Desk Lamp</h4>
+                    <div class="related-price">$28.50</div>
+                    <a href="https://amzn.to/4sfLeq2" target="_blank" class="related-link">Shop Now <i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="related-card">
+                <div class="related-badge">TRENDING</div>
+                <img src="/assests2/projector1.jpg" alt="Galaxy Star Projector">
+                <div class="related-info">
+                    <h4>Galaxy Star Projector Light</h4>
+                    <div class="related-price">$39.99</div>
+                    <a href="https://amzn.to/49eWqvS" target="_blank" class="related-link">Shop Now <i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Flazzy Decor</h3>
+                <p>We curate exceptional home decor that combines aesthetic beauty with practical functionality. Each
+                    piece is selected to transform your living spaces into expressions of personal style.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/flazzyofficial/" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@mightyfables?si=q9g_oew_VjOIkHvb" target="_blank"
+                        aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@mightyfables?is_from_webapp=1&sender_device=pc" target="_blank"
+                        aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.pinterest.com/flazzyhub/" target="_blank" aria-label="Pinterest"><i
+                            class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Shop Categories</h3>
+                <a href="/makeup/makeup.html" target="_blank">Makeup & Beauty</a>
+                <a href="/home&kitchen/home&kitchen.html" target="_blank">Home & Kitchen Essentials</a>
+                <a href="/homedecor/homedecor.html" target="_blank">Home Decor Collection</a>
+                <a href="/electronics/electronics.html" target="_blank">Electronics & Gadgets</a>
+                <a href="/Trendyphonecases/cases.html" target="_blank">Phone Cases & Accessories</a>
+            </div>
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Karachi, Sindh, Pakistan</p>
+                <p><i class="fab fa-whatsapp"></i> +92 348 0067135</p>
+                <p><i class="fas fa-envelope"></i> flazzyhub@gmail.com</p>
+                <p><i class="fas fa-clock"></i> Support: Mon-Fri, 9AM-6PM</p>
+            </div>
+        </div>
+        <!-- Affiliate Disclosure -->
+        <div class="footer-disclosure">
+            <p><strong>Affiliate Transparency:</strong> Flazzy participates in the Amazon Services LLC Associates
+                Program and other affiliate networks. When you purchase through our links, we may earn a commission at
+                no additional cost to you. We only recommend products we genuinely believe will enhance your home and
+                lifestyle. Your support helps us continue providing curated decor recommendations.</p>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Flazzy Curated Home Decor. All Rights Reserved. | Crafted with passion by <a
+                    href="https://jayzwink.netlify.app/">JayZwink Studio</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Search functionality
+        const searchButton = document.querySelector('.search-button');
+        const searchBar = document.querySelector('.search-bar');
+
+        searchButton.addEventListener('click', () => {
+            if (searchBar.value.trim() !== '') {
+                performSearch(searchBar.value);
+            }
+        });
+
+        searchBar.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchBar.value.trim() !== '') {
+                performSearch(searchBar.value);
+            }
+        });
+
+        function performSearch(query) {
+            console.log(`Searching for: ${query}`);
+            // In a real implementation, this would redirect to search results
+            // For now, we'll show an alert
+            alert(`Searching for: "${query}"\n\nThis would redirect to search results in a live implementation.`);
+        }
+
+        // Image Gallery Functionality
+        function changeImage(src) {
+            // Update main image with smooth transition
+            const mainImage = document.getElementById('mainImage');
+            mainImage.style.opacity = '0.7';
+            mainImage.style.transform = 'scale(0.98)';
+
+            setTimeout(() => {
+                mainImage.src = src;
+                mainImage.style.opacity = '1';
+                mainImage.style.transform = 'scale(1)';
+            }, 200);
+
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.product-thumbnail');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+
+            // Find and activate clicked thumbnail
+            thumbnails.forEach(thumb => {
+                if (thumb.src === src) {
+                    thumb.classList.add('active');
+                }
+            });
+        }
+
+        // Add click events to thumbnails
+        document.addEventListener('DOMContentLoaded', function () {
+            const thumbnails = document.querySelectorAll('.product-thumbnail');
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function () {
+                    changeImage(this.src);
+                });
+            });
+
+            // Add zoom effect to main image
+            const mainImage = document.getElementById('mainImage');
+            mainImage.addEventListener('click', function () {
+                this.classList.toggle('zoomed');
+                if (this.classList.contains('zoomed')) {
+                    this.style.transform = 'scale(1.8)';
+                    this.style.cursor = 'zoom-out';
+                    this.style.zIndex = '100';
+                } else {
+                    this.style.transform = 'scale(1)';
+                    this.style.cursor = 'zoom-in';
+                    this.style.zIndex = '1';
+                }
+            });
+        });
+
+        // Amazon button tracking
+        const amazonButton = document.querySelector('.amazon-btn-large');
+        if (amazonButton) {
+            amazonButton.addEventListener('click', function () {
+                console.log('Amazon affiliate click tracked for Superhero Bookends');
+                // In real implementation, this would send data to analytics
+            });
+        }
+
+        // Related products Amazon link tracking
+        const relatedLinks = document.querySelectorAll('.related-link');
+        relatedLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                const productName = this.closest('.related-info').querySelector('h4').textContent;
+                console.log(`Amazon affiliate click tracked for: ${productName}`);
+            });
+        });
+
+        // Add scroll animation for elements
+        window.addEventListener('scroll', function () {
+            const elements = document.querySelectorAll('.related-card, .product-container');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize elements with fade-in effect
+        document.addEventListener('DOMContentLoaded', function () {
+            const animatedElements = document.querySelectorAll('.related-card, .product-container');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            // Trigger animation after a short delay
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
