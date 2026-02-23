@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home & Kitchen Essentials - Flazzy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* -- Same CSS variables as before -- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-light: #f8f3ed;
+            --light-brown: #d7c4b2;
+            --medium-brown: #a78a73;
+            --dark-brown: #6d5747;
+            --cream: #F5F5DC;
+            --gold: #D4AF37;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --nav-white: #FFFFFF;
+            --nav-hover: #a78a73;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Welcome Bar */
+        .welcome-bar {
+            background-color: var(--dark-brown);
+            color: var(--cream);
+            padding: 8px 0;
+            overflow: hidden;
+            position: relative;
+            height: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .welcome-text {
+            position: absolute;
+            white-space: nowrap;
+            animation: moveText 30s linear infinite;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes moveText {
+            0% {
+                left: 100%;
+            }
+
+            100% {
+                left: -100%;
+            }
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--nav-white);
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 42px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img img {
+            height: 100%;
+            width: auto;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark-brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 42px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 30px;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            padding-right: 50px;
+            background-color: var(--primary-light);
+            border: 1px solid var(--light-brown);
+            border-radius: 30px;
+            font-size: 16px;
+            color: var(--dark-brown);
+            transition: all 0.3s;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--medium-brown);
+            box-shadow: 0 0 0 2px rgba(167, 138, 115, 0.2);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--medium-brown);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-button:hover {
+            background: var(--dark-brown);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-right i {
+            margin-left: 20px;
+            color: var(--text-dark);
+            font-size: 18px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav-right i:hover {
+            color: var(--nav-hover);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 24px;
+        }
+
+        /* Category Menu */
+        .category-menu {
+            background-color: var(--cream);
+            padding: 12px 5%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-list li {
+            position: relative;
+        }
+
+        .category-list a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .category-list a:hover {
+            color: var(--medium-brown);
+        }
+
+        .category-list a.active {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .category-list a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 5%;
+            background-color: var(--primary-light);
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--medium-brown);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: var(--dark-brown);
+        }
+
+        .breadcrumb-nav i {
+            color: var(--medium-brown);
+            font-size: 12px;
+        }
+
+        .breadcrumb-nav .current {
+            color: var(--dark-brown);
+            font-weight: 500;
+        }
+
+        /* Category Header */
+        .category-header {
+            text-align: center;
+            padding: 40px 5% 20px;
+            background-color: var(--primary-light);
+        }
+
+        .category-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 42px;
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+        }
+
+        .category-header p {
+            color: var(--medium-brown);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Simple Product Listing */
+        .product-listing {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: var(--dark-brown);
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: var(--medium-brown);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .product-info .rating {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .product-info .rating i {
+            margin: 0 2px;
+        }
+
+        .amazon-button {
+            display: inline-block;
+            background-color: #FF9900;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .amazon-button:hover {
+            background-color: #FF8C00;
+            transform: translateY(-2px);
+        }
+
+        .amazon-button i {
+            margin-right: 8px;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background-color: var(--cream);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+            border-left: 4px solid var(--gold);
+        }
+
+        .disclaimer h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+        }
+
+        .disclaimer p {
+            color: var(--medium-brown);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filter-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .filter-container h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: var(--dark-brown);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background-color: var(--primary-light);
+            border: 2px solid var(--light-brown);
+            color: var(--dark-brown);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--light-brown);
+            color: var(--text-dark);
+        }
+
+        .filter-btn.active {
+            background-color: var(--dark-brown);
+            color: white;
+            border-color: var(--dark-brown);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--cream);
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--cream);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+            opacity: 0.9;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--cream);
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--dark-brown);
+            transform: translateY(-3px);
+        }
+
+        .footer-column p i {
+            margin-right: 10px;
+            color: var(--gold);
+            width: 20px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--cream);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        .copyright a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-disclosure {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background-color: var(--nav-white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            padding: 60px 30px;
+            transition: right 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        .mobile-category-list {
+            list-style: none;
+        }
+
+        .mobile-category-list li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-category-list a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .mobile-category-list a:hover {
+            color: var(--medium-brown);
+        }
+
+        .mobile-category-list a.active {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-right i:not(.hamburger) {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .category-menu {
+                display: none;
+            }
+
+            .search-container {
+                display: none;
+            }
+
+            .category-header h1 {
+                font-size: 36px;
+            }
+
+            .filter-options {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 28px;
+            }
+
+            .category-header h1 {
+                font-size: 28px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Welcome Bar -->
+    <div class="welcome-bar">
+        <div class="welcome-text">Flazzy.shop – Amazon Affiliate Home & Kitchen Essentials - Elevate Your Living Space
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="assets/flazzy_logo.png" alt="Flazzy Logo" onerror="this.style.display='none'">
+                <a href="/index.html" class="logo">Flazzy<span>.</span></a>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search home & kitchen products...">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-right">
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Menu -->
+    <div class="category-menu">
+        <ul class="category-list">
+            <li><a href="/makeup/makeup.html" target="_blank">Makeup</a></li>
+            <li><a href="/home&kitchen/home&kitchen.html" target="_blank" class="active">Home & Kitchen</a></li>
+            <li><a href="/homedecor/homedecor.html" target="_blank">Home Decor</a></li>
+            <li><a href="/electronics/electronics.html" target="_blank">Electronics</a></li>
+            <li><a href="/Trendyphonecases/cases.html" target="_blank">Trendy Phone Cases</a></li>
+        </ul>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav class="breadcrumb-nav">
+            <a href="/index.html"><i class="fas fa-home"></i> Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span class="current">Home & Kitchen</span>
+        </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-close"><i class="fas fa-times"></i></div>
+        <ul class="mobile-category-list">
+            <li><a href="/makeup/makeup.html" target="_blank">Makeup</a></li>
+            <li><a href="/home&kitchen/home&kitchen.html" target="_blank" class="active">Home & Kitchen</a></li>
+            <li><a href="/homedecor/homedecor.html" target="_blank">Home Decor</a></li>
+            <li><a href="/electronics/electronics.html" target="_blank">Electronics</a></li>
+            <li><a href="/Trendyphonecases/cases.html" target="_blank">Trendy Phone Cases</a></li>
+        </ul>
+    </div>
+
+    <!-- Category Header -->
+    <section class="category-header">
+        <h1>Home & Kitchen Essentials</h1>
+        <p>Discover premium home and kitchen products that combine functionality with style. From smart appliances to
+            elegant dinnerware, transform your living space with our curated collection.</p>
+    </section>
+
+
+    <!-- Product Listing -->
+    <section class="product-listing">
+        <div class="product-grid">
+            <!-- Product 0 - Valentines gift -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests3/gift1.jpg" alt="Valentine's Day Gift Set">
+                <div class="product-info">
+                    <h3>Ferrero Rocher</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.5)</span>
+                    </div>
+                    <p>$11.99</p>
+                    <a href="/home&kitchen/Ferrero Rocher.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+            <!-- Product 1 - Kitchen Appliance -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests/Vegetable Chopper and Spiralizer1.jpg" alt="Vegetable Chopper and Spiralizer">
+                <div class="product-info">
+                    <h3>Vegetable Chopper and Spiralizer</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.5)</span>
+                    </div>
+                    <p>$29.99</p>
+                    <a href="/home&kitchen/Vegetable Chopper and Spiralizer.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+            <!-- Product 2 - Kitchen Appliance -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests/Kitsure Large Dish Drying Rack1.jpg" alt="Kitsure Large Dish Drying Rack">
+                <div class="product-info">
+                    <h3>Kitsure Large Dish Drying Rack</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.4)</span>
+                    </div>
+                    <p>$34.99</p>
+                    <a href="/home&kitchen/Kitsure Large Dish Drying Rack.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+            <!-- Product 3 - Kitchen Appliance -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests/CAROTE 14 Pcs Pots and Pans Set1.jpg" alt="CAROTE 14 Pcs Pots and Pans Set">
+                <div class="product-info">
+                    <h3>CAROTE 14 Pcs Pots and Pans Set</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.5)</span>
+                    </div>
+                    <p>$66.49</p>
+                    <a href="/home&kitchen/CAROTE 14 Pcs Pots and Pans Set.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 4 - Kitchen Appliance -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests/waterbottle2.jpg" alt="Owala water bottle">
+                <div class="product-info">
+                    <h3>Owala Insulated Stainless Steel Water Bottle</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.7)</span>
+                    </div>
+                    <p>$29.99</p>
+                    <a href="/home&kitchen/Owala water bottle.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 5 - Kitchen Appliance -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests/tumbler1.jpg" alt="Tumbler with Handle and Straw">
+                <div class="product-info">
+                    <h3>Tumbler with Handle and Straw</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.7)</span>
+                    </div>
+                    <p>$25.00</p>
+                    <a href="/home&kitchen/Tumbler with Handle and Straw.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+            <!-- Product 6 - School Appliance -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests2/Inkless Writing Pen1.jpg" alt="Tumbler with Handle and Straw">
+                <div class="product-info">
+                    <h3>Inkless Writing Pen</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.2)</span>
+                    </div>
+                    <p>$159.00</p>
+                    <a href="/home&kitchen/Inkless Writing Pen.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 7 - glass container -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests2/glassbowl1.jpg" alt="Glass Storage Containers">
+                <div class="product-info">
+                    <h3>Glass Storage Containers</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.4)</span>
+                    </div>
+                    <p>$23.00</p>
+                    <a href="/home&kitchen/Glass Storage Containers.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+            <!-- Product 8 - glass container -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests2/Dash Mini Waffle Maker1.jpg" alt="Glass Storage Containers">
+                <div class="product-info">
+                    <h3>Dash Mini Waffle Maker</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.6)</span>
+                    </div>
+                    <p>$9.99</p>
+                    <a href="/home&kitchen/Dash Mini Waffle Maker.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 9 - Mini fan -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests3/fan1.jpg" alt="Mini Fan">
+                <div class="product-info">
+                    <h3>Mini Fan</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.6)</span>
+                    </div>
+                    <p>$17.99</p>
+                    <a href="/home&kitchen/Mini Fan.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+            <!-- Product 10 - Sewing Kit -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests3/Sewing Kit1.jpg" alt="Sewing Kit">
+                <div class="product-info">
+                    <h3>Sewing Kit</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.6)</span>
+                    </div>
+                    <p>$6.99</p>
+                    <a href="/home&kitchen/Sewing Kit.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 11 - Cutting Boards -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests3/boards1.jpg" alt="Cutting Boards">
+                <div class="product-info">
+                    <h3>Cutting Boards</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.4)</span>
+                    </div>
+                    <p>$16.99</p>
+                    <a href="/home&kitchen/Cutting Boards.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+            <!-- Product 11 - Mini Bag Sealer -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests3/Mini Bag Sealer2.jpg" alt="Mini Bag Sealer">
+                <div class="product-info">
+                    <h3>Mini Bag Sealer</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(3.9)</span>
+                    </div>
+                    <p>$14.99</p>
+                    <a href="/home&kitchen/Mini Bag Sealer.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+            <!-- Product 12 - Hand Juicer -->
+            <div class="product-card" data-type="kitchen">
+                <img src="/assests3/squeezer1.jpg" alt="Lemon Slice Squeezer">
+                <div class="product-info">
+                    <h3>Lemon Slice Squeezer</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: var(--medium-brown); font-size: 14px; margin-left: 5px;">(4.0)</span>
+                    </div>
+                    <p>$12.99</p>
+                    <a href="/home&kitchen/Lemon Slice Squeezer.html" target="_blank" class="amazon-button">
+                        <i class="fab fa-arrow"></i> View details
+                    </a>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <!-- Disclaimer Section -->
+        <div class="disclaimer">
+            <h3><i class="fas fa-exclamation-circle"></i> Amazon Affiliate Disclosure</h3>
+            <p>Flazzy is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program
+                designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
+                When you click on our Amazon links and make a purchase, we may earn a commission at no additional cost
+                to you. We only recommend products we believe are of good quality and value.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Flazzy Collection</h3>
+                <p>Creating exquisite Home, Kitchen & Lifestyle items with elegance and style.</p>
+                <!-- UPDATED: Social Icons in Footer -->
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/flazzyofficial/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@mightyfables?si=q9g_oew_VjOIkHvb" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@mightyfables?is_from_webapp=1&sender_device=pc" target="_blank"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://www.pinterest.com/flazzyhub/" target="_blank"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <a href="/makeup/makeup.html" target="_blank">Makeup</a>
+                <a href="/home&kitchen/home&kitchen.html" target="_blank">Home & Kitchen</a>
+                <a href="/homedecor/homedecor.html" target="_blank">Home Decor</a>
+                <a href="/electronics/electronics.html" target="_blank">Electronics</a>
+                <a href="/Trendyphonecases/cases.html" target="_blank">Trendy Phone Cases</a>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Karachi, Sindh, Pakistan</p>
+                <p><i class="fab fa-whatsapp"></i> +92 348 0067135</p>
+                <p><i class="fas fa-envelope"></i> flazzyhub@gmail.com</p>
+            </div>
+        </div>
+        <!-- NEW: Affiliate Disclosure in Footer -->
+        <div class="footer-disclosure">
+            <p><strong>Affiliate Disclosure:</strong> Flazzy is a participant in various affiliate marketing programs.
+                This means we may earn commissions on qualifying purchases made through our links to retailer sites, at
+                no extra cost to you. We only recommend products we believe in.</p>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Flazzy. All Rights Reserved. | Built with ❤️ by <a
+                    href="https://jayzwink.netlify.app/">JayZwink</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Search functionality
+        const searchButton = document.querySelector('.search-button');
+        const searchBar = document.querySelector('.search-bar');
+
+        searchButton.addEventListener('click', () => {
+            if (searchBar.value.trim() !== '') {
+                alert(`Searching for: ${searchBar.value}`);
+                // In actual implementation, this would filter products
+            }
+        });
+
+        searchBar.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && searchBar.value.trim() !== '') {
+                alert(`Searching for: ${searchBar.value}`);
+                // In actual implementation, this would filter products
+            }
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                // Filter products
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-type') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Amazon link tracking (for demo purposes)
+        const amazonButtons = document.querySelectorAll('.amazon-button');
+
+        amazonButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                // In a real implementation, this would track affiliate clicks
+                const productName = this.closest('.product-info').querySelector('h3').textContent;
+                console.log(`Affiliate click tracked for: ${productName}`);
+                // Link opens in new tab as specified in HTML
+            });
+        });
+
+        // Make "Home & Kitchen" category active in mobile menu
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileLinks = document.querySelectorAll('.mobile-category-list a');
+            mobileLinks.forEach(link => {
+                if (link.textContent === 'Home & Kitchen') {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
