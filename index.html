@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flazzy - Beauty & Personal Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========== ENHANCED CSS WITH MOBILE-FIRST APPROACH ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary-light: #f8f3ed;
+            --light-brown: #d7c4b2;
+            --medium-brown: #a78a73;
+            --dark-brown: #6d5747;
+            --cream: #F5F5DC;
+            --gold: #D4AF37;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --nav-white: #FFFFFF;
+            --nav-hover: #a78a73;
+            --success-green: #2ecc71;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        /* Welcome Bar - Enhanced for mobile */
+        .welcome-bar {
+            background-color: var(--dark-brown);
+            color: var(--cream);
+            padding: 8px 0;
+            overflow: hidden;
+            position: relative;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .welcome-text {
+            position: absolute;
+            white-space: nowrap;
+            animation: moveText 30s linear infinite;
+            letter-spacing: 1px;
+            padding: 0 20px;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateX(100vw);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Enhanced Header & Navigation - Mobile Optimized */
+        header {
+            background-color: var(--nav-white);
+            padding: 15px 5%;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 5%;
+            box-shadow: var(--shadow-medium);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 36px;
+            width: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img img {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 36px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        /* Mobile Search Toggle */
+        .mobile-search-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 18px;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 15px;
+            position: relative;
+            opacity: 1;
+            transform: scaleY(1);
+            transition: all 0.3s ease;
+        }
+
+        .search-container.hidden {
+            opacity: 0;
+            transform: scaleY(0);
+            height: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 48px 12px 15px;
+            background-color: var(--primary-light);
+            border: 1px solid var(--light-brown);
+            border-radius: 25px;
+            font-size: 16px;
+            color: var(--dark-brown);
+            transition: all 0.3s;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--medium-brown);
+            box-shadow: 0 0 0 3px rgba(167, 138, 115, 0.2);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--medium-brown);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-button:hover,
+        .search-button:active {
+            background: var(--dark-brown);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        /* Enhanced Social Icons */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-right a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-right a:hover,
+        .nav-right a:active {
+            color: var(--nav-hover);
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 24px;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .hamburger:hover,
+        .hamburger:active {
+            background: var(--primary-light);
+        }
+
+        /* Enhanced Category Menu - Mobile Scrollable */
+        .category-menu {
+            background-color: var(--cream);
+            padding: 12px 5%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 71px;
+            z-index: 999;
+        }
+
+        .category-list {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 5px;
+            scroll-padding-left: 20px;
+        }
+
+        .category-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-list li {
+            flex-shrink: 0;
+        }
+
+        .category-list a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+            display: block;
+        }
+
+        .category-list a:hover,
+        .category-list a.active {
+            background-color: var(--medium-brown);
+            color: white;
+        }
+
+        /* Enhanced Hero Section for Mobile */
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Optimized background images for mobile */
+        .slide-1 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80');
+        }
+
+        .slide-2 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80');
+        }
+
+        .slide-3 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80');
+        }
+
+        .slide-4 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=1200&q=80');
+        }
+
+        @media (max-width: 768px) {
+
+            .slide-1,
+            .slide-2,
+            .slide-3,
+            .slide-4 {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80');
+            }
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slider-dot.active {
+            background-color: var(--cream);
+            transform: scale(1.3);
+        }
+
+        .slider-dot:hover,
+        .slider-dot:active {
+            background-color: var(--cream);
+            transform: scale(1.2);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--cream);
+            z-index: 5;
+            width: 90%;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h5 {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: clamp(14px, 3vw, 18px);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .hero-content a {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--text-dark);
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            min-width: 180px;
+        }
+
+        .hero-content a:hover,
+        .hero-content a:active {
+            background-color: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Products Section */
+        .products {
+            padding: 60px 5%;
+            text-align: center;
+            background-color: var(--primary-light);
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .products h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(28px, 4vw, 36px);
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+        }
+
+        .products .subtitle {
+            color: var(--medium-brown);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .card-body h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            color: var(--dark-brown);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card-body .price {
+            color: var(--medium-brown);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-body .original-price {
+            text-decoration: line-through;
+            color: var(--light-brown);
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .card-body .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .card-body .btn-primary {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid;
+            cursor: pointer;
+            background-color: var(--medium-brown);
+            color: white;
+            border-color: var(--medium-brown);
+        }
+
+        .card-body .btn-primary:hover,
+        .card-body .btn-primary:active {
+            background-color: var(--dark-brown);
+            border-color: var(--dark-brown);
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Newsletter Section */
+        .newsletter {
+            background-color: var(--cream);
+            padding: 60px 5%;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .newsletter h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(28px, 4vw, 36px);
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            color: var(--medium-brown);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            background-color: white;
+            max-width: 500px;
+            margin: 30px auto 0;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            text-align: left;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            color: var(--dark-brown);
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-field input[type="text"],
+        .form-field input[type="email"] {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid var(--light-brown);
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: var(--primary-light);
+            color: var(--text-dark);
+            transition: all 0.3s;
+        }
+
+        .form-field input:focus {
+            outline: none;
+            border-color: var(--medium-brown);
+            box-shadow: 0 0 0 3px rgba(167, 138, 115, 0.2);
+        }
+
+        .checkbox-field {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-field input[type="checkbox"] {
+            margin-top: 4px;
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--medium-brown);
+        }
+
+        .checkbox-field label {
+            color: var(--medium-brown);
+            font-size: 13px;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .checkbox-field a {
+            color: var(--dark-brown);
+            text-decoration: underline;
+        }
+
+        .newsletter-form button[type="submit"] {
+            background-color: var(--dark-brown);
+            color: white;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .newsletter-form button[type="submit"]:hover,
+        .newsletter-form button[type="submit"]:active {
+            background-color: var(--medium-brown);
+            transform: translateY(-2px);
+        }
+
+        .form-success {
+            display: none;
+            background-color: var(--success-green);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--cream);
+            padding: 50px 5% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--cream);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+            opacity: 0.9;
+            font-size: 14px;
+            padding: 4px 0;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--cream);
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--gold);
+            color: var(--dark-brown);
+            transform: translateY(-3px) rotate(5deg);
+        }
+
+        .footer-column p i {
+            margin-right: 10px;
+            color: var(--gold);
+            width: 20px;
+        }
+
+        .footer-disclosure {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(245, 245, 220, 0.7);
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 1.6;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--cream);
+            opacity: 0.7;
+            font-size: 13px;
+        }
+
+        .copyright a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Enhanced Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 400px;
+            height: 100%;
+            background-color: var(--nav-white);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            padding: 80px 25px 40px;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: var(--text-dark);
+            cursor: pointer;
+            background: var(--primary-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-close:hover {
+            background: var(--medium-brown);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .mobile-search-container {
+            padding: 0 0 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--light-brown);
+        }
+
+        .mobile-search-bar {
+            width: 100%;
+            padding: 14px 45px 14px 15px;
+            background-color: var(--primary-light);
+            border: 1px solid var(--light-brown);
+            border-radius: 25px;
+            font-size: 16px;
+        }
+
+        .mobile-search-bar:focus {
+            outline: none;
+            border-color: var(--medium-brown);
+        }
+
+        .mobile-category-list {
+            list-style: none;
+        }
+
+        .mobile-category-list li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-category-list a {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 500;
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .mobile-category-list a:hover,
+        .mobile-category-list a:active {
+            background-color: var(--primary-light);
+            color: var(--medium-brown);
+            transform: translateX(5px);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--dark-brown);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-medium);
+            z-index: 1002;
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 90%;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--text-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: var(--shadow-medium);
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-brown);
+            color: var(--cream);
+            transform: translateY(-5px);
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--light-brown);
+            border-top: 3px solid var(--medium-brown);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design - Mobile First */
+        @media (max-width: 768px) {
+            .mobile-search-toggle {
+                display: block;
+            }
+
+            .search-container {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                margin: 0;
+                padding: 15px;
+                background: white;
+                box-shadow: var(--shadow-medium);
+                z-index: 999;
+            }
+
+            .nav-right a:not(.hamburger) {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .logo-img {
+                height: 32px;
+                width: 32px;
+            }
+
+            .category-menu {
+                top: 61px;
+                padding: 10px 5%;
+            }
+
+            .category-list {
+                gap: 15px;
+            }
+
+            .category-list a {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+
+            .card-image {
+                height: 200px;
+            }
+
+            .card-body .btn-group {
+                flex-direction: column;
+            }
+
+            .newsletter-form {
+                padding: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h5 {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+
+            .hero-content a {
+                padding: 12px 25px;
+                min-width: 160px;
+                font-size: 15px;
+            }
+
+            .card-body h3 {
+                font-size: 16px;
+            }
+
+            .card-body .price {
+                font-size: 18px;
+            }
+
+            .mobile-menu {
+                width: 90%;
+                padding: 70px 20px 30px;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .card:hover {
+                transform: none;
+            }
+
+            .card:hover .card-image img {
+                transform: none;
+            }
+
+            .card-body .btn-primary:active {
+                transform: scale(0.98);
+            }
+
+            .nav-right a:active {
+                background: var(--primary-light);
+                transform: scale(0.95);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Welcome Bar -->
+    <div class="welcome-bar">
+        <div class="welcome-text">Flazzy.shop – Premium Beauty, Electronics & Home Essentials</div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                
+                <a href="/index.html" class="logo">Flazzy<span>.</span></a>
+            </div>
+
+            <button class="mobile-search-toggle" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search for products...">
+                <button class="search-button" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="nav-right">
+                
+                <div class="hamburger" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Menu -->
+    <div class="category-menu">
+        <ul class="category-list">
+            <li><a href="/makeup/makeup.html" target="_blank">Makeup</a></li>
+            <li><a href="/home&kitchen/home&kitchen.html" target="_blank">Home & Kitchen</a></li>
+            <li><a href="/homedecor/homedecor.html" target="_blank">Home Decor</a></li>
+            <li><a href="/electronics/electronics.html" target="_blank">Electronics</a></li>
+            <li><a href="/clothing/clothing.html" target="_blank">Clothing</a></li>
+            <li><a href="/Trendyphonecases/cases.html" target="_blank">Trendy Phone Cases</a></li>
+        </ul>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-close" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="mobile-search-container">
+            <input type="text" class="mobile-search-bar" placeholder="Search products...">
+        </div>
+
+        <ul class="mobile-category-list">
+            <li><a href="/makeup/makeup.html" target="_blank">Makeup</a></li>
+            <li><a href="/home&kitchen/home&kitchen.html" target="_blank">Home & Kitchen</a></li>
+            <li><a href="/homedecor/homedecor.html" target="_blank">Home Decor</a></li>
+            <li><a href="/electronics/electronics.html" target="_blank">Electronics</a></li>
+            <li><a href="/clothing/clothing.html" target="_blank">Clothing</a></li>
+            <li><a href="/Trendyphonecases/cases.html" target="_blank">Trendy Phone Cases</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="slide slide-1 active">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide slide-2">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide slide-3">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="slide slide-4">
+                <div class="slide-overlay"></div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+            <div class="slider-dot" data-slide="2"></div>
+            <div class="slider-dot" data-slide="3"></div>
+        </div>
+        <div class="hero-content">
+            <h5>Premium Collection</h5>
+            <h1>Beauty, Electronics & Home Essentials</h1>
+            <p>Shop our handpicked beauty products, latest electronics, and stylish home essentials at affordable
+                prices.</p>
+            <a href="#products">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products" id="products">
+        <div class="section-header">
+            <h2>Featured Products</h2>
+            <p class="subtitle">Best sellers loved by thousands of customers</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-image">
+                    <img src="assests/makeupkit.jpg" alt="Makeup" loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="card-body">
+                    <h3>Makeup Kit</h3>
+                    <div class="price">$31.99</div>
+                    <a href="/makeup/makeupkit.html" target="_blank" class="btn-primary">View Details</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="assests/gloss.jpg" alt="Makeup Gloss" loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="card-body">
+                    <h3>Makeup Gloss</h3>
+                    <div class="price">$9.00</div>
+                    <a href="/makeup/e.l.f. Glow Reviver Lip Oil.html" target="_blank" class="btn-primary">View
+                        Details</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="assests/case1.png" alt="Phone Case" loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80'">
+                </div>
+                <div class="card-body">
+                    <h3>EYZUTAK iPhone 15 Pro Max Case</h3>
+                    <div class="price">$9.99</div>
+                    <a href="/Trendyphonecases/EYZUTAK iPhone 15 Pro Max Case.html" target="_blank"
+                        class="btn-primary">View Details</a>
+                </div>
+            </div>
+            <div class="card" >
+                <div class="card-image">
+                    <img src="assests/TAGRY Wireless Earbuds3.jpg" alt="Electronics"
+                        loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>TAGRY Wireless Earbuds</h3>
+                    <div class="price">$24.68</div>
+                    <a href="/electronics/TAGRYWireless Earbuds.html" class="btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay updated with our latest collections in beauty, electronics, and home essentials.</p>
+
+        <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/meejddzd" method="POST">
+            <div class="form-field">
+                <label for="full-name">Full Name (Optional)</label>
+                <input type="text" id="full-name" name="full-name" placeholder="Enter your name">
+            </div>
+            <div class="form-field">
+                <label for="email-address">Email Address *</label>
+                <input type="email" id="email-address" name="email-address" placeholder="Enter your email address"
+                    required>
+            </div>
+            <div class="checkbox-field">
+                <input type="checkbox" id="newsletter-consent" name="newsletter-consent" required>
+                <label for="newsletter-consent">I agree to receive newsletters from Flazzy about new products and
+                    offers.</label>
+            </div>
+            <button type="submit">
+                <span>Subscribe</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+            <div class="form-success" id="formSuccess">
+                <i class="fas fa-check-circle"></i> Thank you for subscribing!
+            </div>
+            <div class="loading-spinner" id="formLoading"></div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Flazzy Collection</h3>
+                <p>Creating exquisite Beauty, Electronics & Home items with elegance and style.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/flazzyofficial/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@mightyfables?si=q9g_oew_VjOIkHvb" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@mightyfables?is_from_webapp=1&sender_device=pc" target="_blank"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://www.pinterest.com/flazzyhub/" target="_blank"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <a href="/makeup/makeup.html" target="_blank">Makeup</a>
+                <a href="/home&kitchen/home&kitchen.html" target="_blank">Home & Kitchen</a>
+                <a href="/homedecor/homedecor.html" target="_blank">Home Decor</a>
+                <a href="/electronics/electronics.html" target="_blank">Electronics</a>
+                <a href="/clothing/clothing.html" target="_blank">Clothing</a>
+                <a href="/Trendyphonecases/cases.html" target="_blank">Trendy Phone Cases</a>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Karachi, Sindh, Pakistan</p>
+                <p><i class="fab fa-whatsapp"></i> +92 348 0067135</p>
+                <p><i class="fas fa-envelope"></i> flazzyhub@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-disclosure">
+            <p><strong>Affiliate Disclosure:</strong> Flazzy is a participant in various affiliate marketing programs.
+                This means we may earn commissions on qualifying purchases made through our links to retailer sites, at
+                no extra cost to you. We only recommend products we believe in.</p>
+        </div>
+        <div class="copyright">
+            <p>© 2024 Flazzy. All Rights Reserved. | Built with ❤️ by <a href="https://jayzwink.netlify.app/"
+                    target="_blank">JayZwink</a></p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Product added to cart!</span>
+    </div>
+
+    <script>
+    // ================= MOBILE MENU =================
+                const hamburger = document.querySelector('.hamburger');
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const mobileMenuClose = document.querySelector('.mobile-menu-close');
+                const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+                const mobileSearchBar = document.querySelector('.mobile-search-bar');
+                const mobileSearchToggle = document.querySelector('.mobile-search-toggle');
+                const searchContainer = document.querySelector('.search-container');
+                const header = document.querySelector('header');
+                const backToTop = document.querySelector('.back-to-top');
+                const toast = document.getElementById('toast');
+                const toastMessage = document.getElementById('toastMessage');
+
+                function toggleMobileMenu() {
+                    mobileMenu.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+                hamburger.addEventListener('click', toggleMobileMenu);
+                mobileMenuClose.addEventListener('click', toggleMobileMenu);
+                mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+
+    // ================= MOBILE SEARCH TOGGLE =================
+    mobileSearchToggle.addEventListener('click', () => {
+                    searchContainer.classList.toggle('hidden');
+                if (!searchContainer.classList.contains('hidden')) {
+                    searchContainer.querySelector('.search-bar').focus();
+        }
+    });
+
+                // ================= REAL SEARCH FUNCTION =================
+                function performSearch(query) {
+                    query = query.toLowerCase().trim();
+                if (!query) return;
+
+                if (query.includes("makeup") || query.includes("lip") || query.includes("beauty")) {
+                    window.location.href = "/makeup/makeup.html";
+        }
+                else if (query.includes("earbud") || query.includes("headphone") || query.includes("electronics")) {
+                    window.location.href = "/electronics/electronics.html";
+        }
+                else if (query.includes("home") || query.includes("kitchen")) {
+                    window.location.href = "/home&kitchen/home&kitchen.html";
+        }
+                else if (query.includes("decor")) {
+                    window.location.href = "/homedecor/homedecor.html";
+        }
+                else if (query.includes("case") || query.includes("phone")) {
+                    window.location.href = "/Trendyphonecases/cases.html";
+        }
+                else {
+                    showToast("No matching products found");
+        }
+    }
+
+                // ================= DESKTOP SEARCH =================
+                const searchButton = document.querySelector('.search-button');
+                const searchBar = document.querySelector('.search-bar');
+
+    searchButton.addEventListener('click', () => {
+                    performSearch(searchBar.value);
+    });
+
+    searchBar.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+                    performSearch(searchBar.value);
+        }
+    });
+
+    // ================= MOBILE SEARCH =================
+    mobileSearchBar.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+                    performSearch(mobileSearchBar.value);
+                toggleMobileMenu();
+                mobileSearchBar.value = '';
+        }
+    });
+
+                // ================= HERO SLIDER =================
+                const slides = document.querySelectorAll('.slide');
+                const dots = document.querySelectorAll('.slider-dot');
+                let currentSlide = 0;
+
+                function showSlide(n) {
+                    slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+    }
+
+    dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => showSlide(i));
+    });
+
+    setInterval(() => showSlide(currentSlide + 1), 5000);
+
+    // ================= SCROLL EFFECTS =================
+    window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+        backToTop.classList.toggle('show', window.scrollY > 300);
+    });
+
+    backToTop.addEventListener('click', e => {
+                    e.preventDefault();
+                window.scrollTo({top: 0, behavior: 'smooth' });
+    });
+
+                // ================= TOAST =================
+                function showToast(msg) {
+                    toastMessage.textContent = msg;
+                toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+                console.log("Flazzy search system activated ✔");
+        </script>
+
+</body>
+
+</html>
